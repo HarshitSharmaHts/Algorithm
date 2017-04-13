@@ -1,12 +1,23 @@
+/*
+ * Program to calculate average turnaround time and average waiting time 
+ *of the processes using preemptive earlier deadline first scheduling algorithm
+ *Input  :  -> 1: Arival Time of Process
+            -> 2: CPU Burst time
+            -> 3: Deadline of process
+            
+ *Output :  -> 1: Average turn around time
+            -> 2: Average Waiting time
+ */
 #include<stdio.h>
 
+// Structure for process details
 typedef struct 
 {
-        int AT;
-        int BT;
-        int DE;
-        int CT;
-        int temp;
+        int AT;         //Arival time
+        int BT;         //Burst time
+        int DE;         //Deadline
+        int CT;         //Complition time
+        int temp;       //holds BT
 }PROCESS;
 
 void fill_CT(PROCESS [], int);
@@ -27,6 +38,7 @@ int main()
         return 0;
 }
 
+// fill_CT function to calculate total complition time of process
 void fill_CT(PROCESS p[], int number)
 {
         p[number].DE=9999;
@@ -47,8 +59,9 @@ void fill_CT(PROCESS p[], int number)
                 }
         }
         return;
-}
+}// End fill_CT()
 
+// get_process function to scan required information of process 
 void get_process(PROCESS p[], int n_of_p)
 {
         int i;
@@ -67,8 +80,9 @@ void get_process(PROCESS p[], int n_of_p)
         }
         printf("----------------------------------------------------\n");
         return;
-}
+}// End get_process()
 
+// print_process funtion to print details of process
 void print_process(PROCESS p[], int n_of_p)
 {
         int i;
@@ -83,8 +97,9 @@ void print_process(PROCESS p[], int n_of_p)
         }
         printf("----------------------------------------------------\n");
         return;
-}
+}// End print_process()
 
+// avg_TAT_WT funtion to calculate average Turn Around Time and Waiting Time
 void avg_TAT_WT(PROCESS p[], int n_of_p)
 {
         int i;
@@ -98,5 +113,8 @@ void avg_TAT_WT(PROCESS p[], int n_of_p)
         printf("Average Turn Around Time   :   %7.3f\n",TAT/n_of_p);
         printf("Average Waiting Time       :   %7.3f\n",WT/n_of_p);
         printf("----------------------------------------------------\n");
-}
-
+}// avg_TAT_WT()
+/*
+ * Author :- Harshit Sharma
+ * Date : 10/04/2017
+ */
