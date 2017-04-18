@@ -1,6 +1,6 @@
 /*
  * Program to calculate average turnaround time and average waiting time 
- *of the processes using preemptive earlier deadline first scheduling algorithm
+ *of the processes using earliest deadline first(preemptive) scheduling algorithm
  *Input  :  -> 1: Arival Time of Process
             -> 2: CPU Burst time
             -> 3: Deadline of process
