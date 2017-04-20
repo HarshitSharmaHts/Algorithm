@@ -9,6 +9,7 @@
  */
 
 #include<stdio.h>
+#include<limits.h>
 
 // Structure for process details
 typedef struct 
@@ -27,10 +28,10 @@ void avg_TAT_WT(PROCESS [], int);
 
 int main()
 {
-        PROCESS p[80];
         int num;
         printf("Enter the number of process   :   ");
         scanf("%d",&num);
+        PROCESS p[num];
         get_process(p,num);
         fill_CT(p,num);
         print_process(p,num);
@@ -41,7 +42,7 @@ int main()
 // fill_CT function to calculate total complition time of process
 void fill_CT(PROCESS p[], int number)
 {
-        p[number].RT=9999;
+        p[number].RT=INT_MAX;
         int i,j,k,l,count=0;
         for(i=0;count!=number;i++)
         {
