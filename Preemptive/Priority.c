@@ -43,7 +43,7 @@ int main()
 void fill_CT(PROCESS p[], int number)
 {
         p[number].PRI=-1;
-        int i,j,k,l,count=0;
+        int i,j,k,count=0;
         for(i=0;count!=number;i++)
         {
                 k=number;
