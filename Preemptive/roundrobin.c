@@ -47,10 +47,11 @@ void enQueue(int cq[],int value,int SIZE)
 {
    if((front == 0 && rear == SIZE - 1) || (front == rear+1))
       printf("\nProcess Limit Exceed!!!\n");
-   else{
+   else
+   {
       if(rear == SIZE-1 && front != 0)
 	 rear = -1;
-      cq[++rear] = value;
+         cq[++rear] = value;
       if(front == -1)
 	 front = 0;
    }
@@ -62,7 +63,8 @@ int deQueue(int cq[],int SIZE)
 	int temp;
    if(front == -1 && rear == -1)
       return -1;
-   else{
+   else
+   {
       temp=cq[front++];
       if(front == SIZE)
 	 front = 0;
@@ -124,7 +126,7 @@ void avg_TAT_WT(PROCESS p[], int n_of_p)
 }//End avg_TAT_WT()
 
 // fill_CT function to calculate total complition time of process
-void fill_CT(PROCESS p[],int nu_of_p,int TQ)
+void fill_CT(PROCESS p[],int nu_of_p,int TQ)	//TQ is Time Quantum for processes
 {
 	int ready_Q[nu_of_p];
 	int i=0,j,r,time=0;
@@ -137,7 +139,7 @@ void fill_CT(PROCESS p[],int nu_of_p,int TQ)
 		}
 		if(time==0)
 		r=deQueue(ready_Q,nu_of_p);
-		if(p[r].temp==0)
+		if(p[r].temp==0)		//If process completes it's execution before time quantum
 		{
 			i=TQ;
 			p[r].CT=time;
