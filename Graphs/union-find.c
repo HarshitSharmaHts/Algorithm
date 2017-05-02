@@ -50,7 +50,7 @@ struct Node* MAKE_SET(int value)
 	struct Node_header* new_header=(struct Node_header*)malloc(sizeof(struct Node_header));
 	new_node->value=value;
 	new_node->rep=new_header;
-	new_node->next=NULL:
+	new_node->next=NULL;
 	new_header->count=1;
 	new_header->head=new_node;
 	new_header->tail=new_node;
