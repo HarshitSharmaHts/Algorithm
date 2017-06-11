@@ -7,7 +7,7 @@
  */
 
 #include<stdio.h>
-
+// function to print the path between two vertices
 void path(int start , int end, int S[][100])
 {
 	int i=start-1,j=end-1;
@@ -19,8 +19,9 @@ void path(int start , int end, int S[][100])
 		k=S[k-1][j];
 	}
 	printf(" --> %d",end);
-}
+}// End path()
 
+// function to build sequence and distance matrix
 void floyds(int D[][100], int S[][100], int v)
 {
 	for(int k=0;k<v;k++)
@@ -31,8 +32,9 @@ void floyds(int D[][100], int S[][100], int v)
 					D[i][j]=D[i][k]+D[k][j];
 					S[i][j]=k+1;
 				}
-}
+}// End of floyds
 
+// driver function main
 int main()
 {
 	int v;
@@ -54,6 +56,7 @@ int main()
 				S[i][j]=j+1;
 			}
 		}
+	// building distance and sequence matrix as D and S
 	floyds(D,S,v);
 	int a,b;
 	while(1)
@@ -68,7 +71,8 @@ int main()
 		printf("\n+-----------------------------------------------+\n");
 	}
 	return 0;
-}
+}// End main()
+
 /*
  * Author : Harshit Sharma
  * Date   : 11 Jun 2017
