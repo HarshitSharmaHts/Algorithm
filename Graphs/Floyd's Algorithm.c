@@ -7,32 +7,9 @@
  */
 
 #include<stdio.h>
-// function to print the path between two vertices
-void path(int start , int end, int S[][100])
-{
-	int i=start-1,j=end-1;
-	printf("%d ",start);
-	int k=S[i][j];
-	while(k!=end)
-	{
-		printf("--> %d",k);
-		k=S[k-1][j];
-	}
-	printf(" --> %d",end);
-}// End path()
 
-// function to build sequence and distance matrix
-void floyds(int D[][100], int S[][100], int v)
-{
-	for(int k=0;k<v;k++)
-		for(int i=0;i<v;i++)
-			for(int j=0;j<v;j++)
-				if(D[i][j] > D[i][k]+D[k][j])
-				{
-					D[i][j]=D[i][k]+D[k][j];
-					S[i][j]=k+1;
-				}
-}// End of floyds
+void floyds(int [][100], int [][100], int);
+void path(int , int, int [][100]);
 
 // driver function main
 int main()
@@ -72,6 +49,33 @@ int main()
 	}
 	return 0;
 }// End main()
+
+// function to print the path between two vertices
+void path(int start , int end, int S[][100])
+{
+	int i=start-1,j=end-1;
+	printf("%d ",start);
+	int k=S[i][j];
+	while(k!=end)
+	{
+		printf("--> %d",k);
+		k=S[k-1][j];
+	}
+	printf(" --> %d",end);
+}// End path()
+
+// function to build sequence and distance matrix
+void floyds(int D[][100], int S[][100], int v)
+{
+	for(int k=0;k<v;k++)
+		for(int i=0;i<v;i++)
+			for(int j=0;j<v;j++)
+				if(D[i][j] > D[i][k]+D[k][j])
+				{
+					D[i][j]=D[i][k]+D[k][j];
+					S[i][j]=k+1;
+				}
+}// End of floyds
 
 /*
  * Author : Harshit Sharma
